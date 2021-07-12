@@ -1,0 +1,21 @@
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+#timelinebutton{
+  text-align: center;
+  background-color: rgba(217,3,104,1);
+
+  justify-content: center;
+  margin:auto;
+  border-radius: 3px;
+
+  font-family: Sniglet;
+  color: #f5f5f5;
+}
+
+

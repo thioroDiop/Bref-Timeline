@@ -1,0 +1,42 @@
+<section id="responseDate">
+
+  <section>
+
+    <form [formGroup]="guessForm" (ngSubmit)="isCorrect()">
+      <input id="carteADeviner" type="number" placeholder="Entrez la date" required="true" formControlName="formDate">
+      <button type="submit"> DEVINER</button>
+    </form>
+<!--    fonction MouseOver pour cacher la réponse -->
+    <div *ngIf="guessingCard" (mouseover)="changeText=true" (mouseout)="changeText=false">
+      <span *ngIf="!changeText"> --?--</span>
+      <span *ngIf="changeText">{{ guessCardDate }}</span>
+    </div>
+
+</section>
+
+
+
+<section >
+
+    <h2> Carte à deviner</h2>
+  <div *ngIf="guessingCard" id="guessCard">
+    <h3>{{guessingCard.name.valueOf()}}</h3>
+    <h3>  <img src="{{guessingCard.imageUrl}}" alt="Image de la carte"/> </h3>
+    <h3>{{guessingCard.description}}</h3>
+  </div>
+
+
+  <h2>Cartes trouvées </h2>
+  <div id="blockguessCard">
+  <div *ngFor="let cardGuessed of cardAlreadyGuessed" id="guessCard">
+    <h3>{{cardGuessed.name}}</h3>
+    <h3>{{cardGuessed.date}}</h3>
+    <h3><img src="{{cardGuessed.imageUrl}}" alt="image de la carte déjà trouvée"/> </h3>
+    <h3>{{cardGuessed.description}}</h3>
+    <br />
+  </div>
+  </div>
+</section>
+
+
+

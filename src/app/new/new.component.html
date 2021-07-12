@@ -1,0 +1,68 @@
+<h2>Détails du timeline</h2>
+<section>
+  <form id="" >
+    <label for="name">Nom : </label>
+    <input id="name" type="text" required="true" formControlName="name">
+    <label for="category">Catégorie : </label>
+    <input id="category" type="number" required="true" formControlName="category">
+    <label for="dateOfCreation">Date de création : </label>
+    <input id="dateOfCreation" type="date" required="true" formControlName="formDate">
+<!--    required="true" champ doit etre obligatoirement rempli-->
+  </form>
+  <button (click)="saveTimeline()"> Sauver le timeline</button>
+</section>
+
+<section id="EditionNouvelleCarte">
+
+
+  <h2> Edition d'une carte </h2>
+  <button (click)="newCard()"> Nouvelle carte</button>
+  <label for="name">Nom : </label>
+  <input id="name" type="text" required="true" formControlName="name">
+  <label for="dateOfCreation">Date de création : </label>
+  <input id="dateOfCreation" type="date" required="true" formControlName="dateOfCreation">
+  <label for="url">URL d'image : </label>
+  <input id="url" type="url" required="true" formControlName="url">
+  <label for="description">Description : </label>
+  <input id="description" type="text" required="true" formControlName="description">
+  <button (click)="saveCard()"> Sauver la carte</button>
+  <section>
+    <h2>Liste des cartes</h2>
+    <table>
+      <thead>
+      <tr>
+        <th> Id</th>
+        <th> Nom</th>
+        <th> Date</th>
+        <th> URL d'image</th>
+        <th> Description</th>
+        <th> Editer ?</th>
+        <th> Supprimer ?</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let card of cardList | async">
+        <td>{{card.id}}</td>
+        <td>{{card.name}}</td>
+        <td>{{card.date | date : 'dd/MM/YYYY'}}</td>
+        <td>{{card.imageUrl}}</td>
+        <td>{{card.description}}</td>
+        <td>
+          <button (click)="updateCard(card)"> Editer</button>
+        </td>
+        <td>
+          <button (click)="deleteCard(card)"> Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+
+
+
+
+
+
+
